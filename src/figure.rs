@@ -1,12 +1,12 @@
 use super::position::Position;
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum FigureColor {
     White,
     Black,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub enum FigureName {
     Pawn,
     Knight,
@@ -16,7 +16,7 @@ pub enum FigureName {
     King,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Figure {
     pub name: FigureName,
     pub position: Position,
@@ -66,6 +66,39 @@ impl Figure {
 
     pub fn die(&mut self) {
         self.is_live = false;
+    }
+}
+
+mod tests {
+    use crate::{
+        figure::{Figure, FigureColor, FigureName},
+        position::Position,
+    };
+
+    #[test]
+    fn create_a_new_figure() {
+        let x: u8 = 2;
+        let y: u8 = 5;
+        let p = Position::new(x, y);
+
+        let name = FigureName::King;
+        let position = p;
+        let color = FigureColor::White;
+        let is_live = true;
+        let move_counter = 0;
+        let kill_counter = 0;
+
+        let left_f = Figure {
+            name: name.clone(),
+            position: position.clone(),
+            color: color.clone(),
+            is_live: is_live.clone(),
+            move_counter: move_counter.clone(),
+            kill_counter: kill_counter.clone(),
+        };
+        let right_f = Figure::new(name, position, color);
+
+        assert_eq!(left_f, right_f);
     }
 }
 

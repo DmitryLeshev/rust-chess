@@ -1,9 +1,9 @@
 #[derive(Debug)]
 pub struct Playground {
-    min_x: u8,
-    min_y: u8,
-    max_x: u8,
-    max_y: u8,
+    min_x: usize,
+    min_y: usize,
+    max_x: usize,
+    max_y: usize,
 }
 
 impl Playground {
