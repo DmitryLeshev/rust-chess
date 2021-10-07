@@ -42,7 +42,7 @@ impl Board {
                     }
                     _ => None,
                 };
-                println!("idx_x: {}  idx_y: {}", idx_x, idx_y);
+                // println!("idx_x: {}  idx_y: {}", idx_x, idx_y);
                 let cell = Cell::new(idx_x as u8, idx_y as u8, figure);
                 let name = format!("{}{}", char, value);
                 cells.insert(name, cell);

@@ -1,9 +1,9 @@
 use crate::{figure::Figure, position::Position};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq)]
 pub struct Cell {
-    position: Position,
-    figure: Option<Figure>,
+    pub position: Position,
+    pub figure: Option<Figure>,
 }
 
 impl Cell {
